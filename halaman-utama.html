@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ONEX Consultant | AI & Digital Transformation Experts</title>
+  <style>
+    :root {
+      --primary: #4a6cf7;
+      --primary-dark: #3b5bd9;
+      --secondary: #6c757d;
+      --light: #f8f9fa;
+      --dark: #212529;
+      --gray-100: #f8f9fa;
+      --gray-200: #e9ecef;
+      --gray-300: #dee2e6;
+      --gray-400: #ced4da;
+      --gray-500: #adb5bd;
+      --gray-600: #6c757d;
+      --gray-700: #495057;
+      --gray-800: #343a40;
+      --gray-900: #212529;
+      --white: #fff;
+      --black: #000;
+      --success: #28a745;
+      --info: #17a2b8;
+      --warning: #ffc107;
+      --danger: #dc3545;
+      --border-radius: 8px;
+      --box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      --transition: all 0.3s ease;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      color: var(--dark);
+      line-height: 1.6;
+      background-color: var(--light);
+      overflow-x: hidden;
+    }
+
+    /* Utility Classes */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .section {
+      padding: 80px 0;
+    }
+
+    .text-center {
+      text-align: center;
+      padding-top: 0px;
+      margin-top: 0px;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 24px;
+      border-radius: var(--border-radius);
+      font-weight: 600;
+      text-decoration: none;
+      transition: var(--transition);
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(74, 108, 247, 0.3);
+    }
+
+    .btn-outline {
+      border: 2px solid var(--primary);
+      color: var(--primary);
+      background: transparent;
+    }
+
+    .btn-outline:hover {
+      background-color: var(--primary);
+      color: white;
+      transform: translateY(-2px);
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: 700;
+      line-height: 1.2;
+      margin-bottom: 0.5em;
+    }
+
+    p {
+      margin-bottom: 1em;
+    }
+
+    /* Header */
+    header {
+      background-color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      transition: var(--transition);
+    }
+
+    .header-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 5%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .logo img {
+      width: 80px;
+      height: 80px;
+      border-radius: 40%;
+      box-shadow: 0 0 10px rgba(74, 108, 247, 0.3);
+    }
+
+    .logo-text h1 {
+      font-size: 1.8rem;
+      color: var(--dark);
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .logo-text p {
+      font-size: 0.8rem;
+      color: var(--secondary);
+      margin-top: -4px;
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 2rem;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: var(--dark);
+      font-weight: 500;
+      position: relative;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    nav a::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background-color: var(--primary);
+      transition: width 0.3s;
+    }
+
+    nav a:hover::after {
+      width: 100%;
+    }
+
+    /* Hero Section */
+    .hero {
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef1f5 100%);
+      padding: 100px 0;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 50%;
+      background: linear-gradient(to right, rgba(74, 108, 247, 0.05), transparent);
+      z-index: -1;
+    }
+
+    .hero-content {
+      display: flex;
+      align-items: center;
+      gap: 40px;
+    }
+
+    .hero-text {
+      flex: 1;
+    }
+
+    .hero-text h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+      line-height: 1.1;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: var(--gray-700);
+      margin-bottom: 2rem;
+      max-width: 600px;
+    }
+
+    .hero-buttons {
+      display: flex;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .hero-image {
+      flex: 1;
+      position: relative;
+    }
+
+    .hero-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      animation: float 3s ease-in-out infinite;
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0px); }
+    }
+
+    /* About Section */
+    .about {
+      background-color: white;
+    }
+
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about-text h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: var(--dark);
+    }
+
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--gray-700);
+    }
+
+    .about-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      margin-top: 30px;
+    }
+
+    .stat-item {
+      text-align: center;
+      padding: 20px;
+      background: var(--gray-100);
+      border-radius: var(--border-radius);
+      transition: var(--transition);
+    }
+
+    .stat-item:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--box-shadow);
+    }
+
+    .stat-number {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    .about-image img {
+      width: 100%;
+      border-radius: var(--border-radius);
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    }
+
+    /* Services Section */
+    .services {
+      background-color: var(--gray-100);
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+    }
+
+    .service-card {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 30px;
+      box-shadow: var(--box-shadow);
+      transition: var(--transition);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+    }
+
+    .service-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 0;
+      height: 4px;
+      background: var(--primary);
+      transition: width 0.5s ease;
+    }
+
+    .service-card:hover::before {
+      width: 100%;
+    }
+
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--primary);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      color: white;
+      font-size: 1.5rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--dark);
+    }
+
+    .service-card p {
+      color: var(--gray-700);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background: linear-gradient(135deg, #f5f7fa 0%, #eef1f5 100%);
+    }
+
+    .testimonials-slider {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+    }
+
+    .testimonial-card {
+      background: white;
+      padding: 30px;
+      border-radius: var(--border-radius);
+      box-shadow: var(--box-shadow);
+      text-align: center;
+      transition: var(--transition);
+    }
+
+    .testimonial-card:hover {
+      transform: scale(1.02);
+    }
+
+    .testimonial-avatar {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      overflow: hidden;
+      border: 3px solid var(--primary);
+    }
+
+    .testimonial-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .testimonial-text {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--gray-700);
+      margin-bottom: 20px;
+    }
+
+    .testimonial-author {
+      font-weight: 600;
+      color: var(--dark);
+    }
+
+    .testimonial-title {
+      font-size: 0.9rem;
+      color: var(--gray-600);
+    }
+
+    /* Contact Section */
+    .contact {
+      background-color: #f4f7f6;
+      padding: 80px 0;
+    }
+
+    .contact-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 4rem;
+      align-items: start;
+    }
+
+    .contact-info .section-title {
+      font-size: 2rem;
+      margin-bottom: 0.5rem;
+      color: #161616;
+    }
+    .contact-info .section-subtitle {
+      color: #6f6f6f;
+      margin-bottom: 2.5rem;
+    }
+    .info-item {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      margin-bottom: 2rem;
+    }
+    .info-item .icon-box {
+      width: 50px;
+      height: 50px;
+      background-color: #ffffff;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #161616;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    }
+    .info-item h4 {
+      margin: 0;
+      font-size: 1rem;
+      font-weight: 600;
+      color: #161616;
+    }
+    .info-item p, .info-item a {
+      margin: 0;
+      color: #525252;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .form-card {
+      background: #ffffff;
+      padding: 2.5rem;
+      border-radius: 12px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    }
+
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      font-size: 0.9rem;
+      font-weight: 500;
+      margin-bottom: 0.5rem;
+      color: #393939;
+    }
+    .form-card input,
+    .form-card select,
+    .form-card textarea {
+      width: 100%;
+      padding: 12px 15px;
+      border: 1px solid #e0e0e0;
+      border-radius: 6px;
+      font-size: 1rem;
+      font-family: inherit;
+      background-color: #fbfbfb;
+      transition: border-color 0.3s;
+    }
+    .form-card input:focus,
+    .form-card select:focus,
+    .form-card textarea:focus {
+      outline: none;
+      border-color: #0f62fe;
+      background-color: #fff;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: #0f62fe;
+      color: white;
+      border: none;
+      padding: 14px;
+      font-size: 1rem;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .submit-btn:hover {
+      background-color: #0353e9;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--dark);
+      color: white;
+      padding: 60px 0 30px;
+    }
+
+    .footer-content {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 40px;
+      margin-bottom: 40px;
+    }
+
+    .footer-logo {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .footer-logo img {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .footer-logo h3 {
+      font-size: 1.5rem;
+      margin: 0;
+      color: white;
+    }
+
+    .footer-logo p {
+      color: var(--gray-400);
+      font-size: 0.9rem;
+    }
+
+    .footer-links h4 {
+      font-size: 1.2rem;
+      margin-bottom: 20px;
+      color: white;
+    }
+
+    .footer-links ul {
+      list-style: none;
+    }
+
+    .footer-links li {
+      margin-bottom: 10px;
+    }
+
+    .footer-links a {
+      color: var(--gray-400);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover {
+      color: white;
+      padding-left: 5px;
+    }
+
+    .footer-social {
+      display: flex;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .social-icon {
+      width: 40px;
+      height: 40px;
+      background: rgba(255,255,255,0.1);
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: white;
+      transition: var(--transition);
+    }
+
+    .social-icon:hover {
+      background: var(--primary);
+      transform: translateY(-3px);
+    }
+
+    .footer-copyright {
+      text-align: center;
+      padding-top: 30px;
+      border-top: 1px solid rgba(255,255,255,0.1);
+      color: var(--gray-400);
+      font-size: 0.9rem;
+    }
+
+    /* AI Chatbot Badge */
+    .ai-chatbot-badge {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: var(--primary);
+      color: white;
+      padding: 15px 20px;
+      border-radius: 50px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      cursor: pointer;
+      z-index: 1001;
+      box-shadow: 0 4px 20px rgba(74, 108, 247, 0.4);
+      transition: var(--transition);
+      animation: pulse 2s infinite;
+    }
+
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(74, 108, 247, 0.4); }
+      70% { box-shadow: 0 0 0 10px rgba(74, 108, 247, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(74, 108, 247, 0); }
+    }
+
+    .ai-chatbot-badge:hover {
+      transform: scale(1.05) translateY(-3px);
+      box-shadow: 0 8px 25px rgba(74, 108, 247, 0.6);
+    }
+
+    .badge-icon img{
+      width: 40px;
+      height: 40px;
+      border-radius: 20px;
+    }
+
+    .badge-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    /* Chat Window — DIPERBAIKI */
+    .chat-window {
+      position: fixed;
+      bottom: 80px;
+      right: 20px;
+      width: 450px;        /* ← Lebih lebar */
+      height: 550px;       /* ← Lebih tinggi */
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      display: none;
+      flex-direction: column;
+      z-index: 1000;
+      overflow: hidden;
+      border: 1px solid #e2e8f0;
+    }
+
+    .chat-window.active {
+      display: flex;
+      animation: slideIn 0.3s ease-out;
+    }
+
+    @keyframes slideIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .chat-header {
+      background: #4a6cf7;
+      color: white;
+      padding: 14px 18px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .chat-header-left {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .chat-logo {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+    }
+
+    .chat-header h3 {
+      font-size: 1.1rem;
+      font-weight: 600;
+      margin: 0;
+    }
+
+    .minimize-btn {
+      background: none;
+      border: none;
+      color: white;
+      font-size: 1.6rem;
+      cursor: pointer;
+      padding: 0 8px;
+      transition: var(--transition);
+    }
+
+    .minimize-btn:hover {
+      transform: rotate(180deg);
+    }
+
+    .chat-messages {
+      flex: 1;
+      padding: 20px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      background: #f9fafb;
+    }
+
+    .message {
+      display: flex;
+      max-width: 85%;
+    }
+
+    .bot-message {
+      align-self: flex-start;
+    }
+
+    .user-message {
+      align-self: flex-end;
+    }
+
+    .avatar {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--primary);
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+
+    .text {
+      padding: 14px 18px;
+      border-radius: 18px;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      word-wrap: break-word;
+      max-width: 320px;
+    }
+
+    .bot-message .text {
+      background: #f0f4ff;
+      color: #2d3748;
+      border-bottom-left-radius: 6px;
+    }
+
+    .user-message .text {
+      background: #4a6cf7;
+      color: white;
+      border-bottom-right-radius: 6px;
+    }
+
+    /* Formatting dalam teks */
+    .text strong {
+      color: #3b5bd9;
+      font-weight: 600;
+    }
+
+    .text br {
+      content: "";
+      margin: 6px 0;
+      display: block;
+    }
+
+    .chat-input {
+      display: flex;
+      padding: 14px 18px;
+      border-top: 1px solid #e2e8f0;
+      background: white;
+    }
+
+    .chat-input input {
+      flex: 1;
+      padding: 10px 14px;
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      outline: none;
+      font-size: 0.95rem;
+      background: #f8fafc;
+    }
+
+    .chat-input input:focus {
+      border-color: #4a6cf7;
+    }
+
+    .chat-input button {
+      background: #4a6cf7;
+      color: white;
+      border: none;
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      margin-left: 10px;
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: background 0.3s;
+    }
+
+    .chat-input button:hover {
+      background: #3b5bd9;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 992px) {
+      .hero-content {
+        flex-direction: column;
+        text-align: center;
+      }
+      .hero-text { order: 2; }
+      .hero-image { order: 1; }
+      .about-content, .contact-wrapper { grid-template-columns: 1fr; }
+      .hero-text h1 { font-size: 2.5rem; }
+      .section { padding: 60px 0; }
+    }
+
+    @media (max-width: 768px) {
+      .header-container { padding: 1rem 20px; }
+      .logo-text h1 { font-size: 1.5rem; }
+      nav ul { gap: 1rem; flex-wrap: wrap; }
+      .hero-text h1 { font-size: 2rem; }
+      .hero-buttons { flex-direction: column; width: 100%; }
+      .btn { width: 100%; text-align: center; }
+      .about-stats { grid-template-columns: 1fr; }
+      .contact-form { padding: 20px; }
+    }
+
+    @media (max-width: 480px) {
+      .hero-text h1 { font-size: 1.8rem; }
+      .section { padding: 40px 0; }
+      .container { padding: 0 15px; }
+
+      .chat-window {
+        width: 95%;
+        right: 2.5%;
+        bottom: 70px;
+        height: 60vh;
+      }
+
+      .text {
+        max-width: 90%;
+        padding: 14px 16px;
+      }
+
+      .ai-chatbot-badge {
+        padding: 12px 15px;
+        right: 15px;
+        bottom: 15px;
+      }
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="logoonex.png" alt="ONEX Consultant Logo">
+      </div>
+      <nav>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <div class="hero-content">
+        <div class="hero-text">
+          <h1>Transform Your Business with Intelligent Automation</h1>
+          <p>ONEX Consultant helps enterprises leverage AI, automation, and digital transformation to drive efficiency, enhance customer experience, and unlock new revenue streams.</p>
+          <div class="hero-buttons">
+            <a href="#contact" class="btn btn-primary">Get Free Consultation</a>
+            <a href="#services" class="btn btn-outline">Explore Services</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="bck.png" alt="AI Consulting Dashboard">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- About Section -->
+  <section class="section about" id="about">
+    <div class="container">
+      <div class="about-content">
+        <div class="about-text">
+          <h2>Leading AI & Digital Transformation Consultants</h2>
+          <p>Founded in 2020, ONEX Consultant is a boutique consultancy firm specializing in helping mid-market and enterprise organizations implement cutting-edge AI solutions, automate business processes, and build intelligent digital ecosystems.</p>
+          <p>Our team comprises seasoned technologists, data scientists, and business strategists who have successfully delivered over 150+ AI projects across finance, healthcare, retail, and manufacturing sectors.</p>
+          <p>We don't just sell technology — we partner with you to understand your unique challenges and design tailored solutions that deliver measurable ROI.</p>
+          <div class="about-stats">
+            <div class="stat-item">
+              <div class="stat-number">150+</div>
+              <div class="stat-label">Projects Delivered</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">95%</div>
+              <div class="stat-label">Client Satisfaction</div>
+            </div>
+            <div class="stat-item">
+              <div class="stat-number">20+</div>
+              <div class="stat-label">Industry Experts</div>
+            </div>
+          </div>
+        </div>
+        <div class="about-image">
+          <img src="meetonex.png" alt="ONEX Team Meeting">
+        </div>
+      </div>
+    </div>  
+  </section>
+
+  <!-- Services Section -->
+  <section class="section services" id="services">
+    <div class="container">
+      <h2 class="text-center">Our Expertise & Services</h2>
+      <div class="services-grid">
+        <!-- 8 cards tetap sama -->
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-cpu-fill"></i></div>
+          <h3>Data & AI Solutions</h3>
+          <p>Empower your enterprise with scalable AI and advanced analytics. We deliver end-to-end solutions ranging from robust data engineering to model deployment using <strong>watsonx</strong>, ensuring ethical AI governance and actionable business intelligence.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-compass-fill"></i></div>
+          <h3>Strategy Consulting</h3>
+          <p>Future-proof your business with data-driven strategies. We provide expert advisory on technology roadmaps, comprehensive market analysis, and sustainability frameworks to drive digital transformation and tangible business value.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-cloud-check-fill"></i></div>
+          <h3>Hybrid Cloud Transformation</h3>
+          <p>Accelerate agility through seamless hybrid cloud adoption. We specialize in application modernization, multi-cloud orchestration, and containerization via <strong>OpenShift</strong> to optimize infrastructure costs and enhance operational resilience.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-shield-lock-fill"></i></div>
+          <h3>Cybersecurity & Risk</h3>
+          <p>Safeguard your critical assets with a holistic security posture. Our services encompass proactive threat detection, robust identity management, and strict regulatory compliance (GDPR, ISO) to mitigate risk and build digital trust.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-gear-wide-connected"></i></div>
+          <h3>SAP Consulting</h3>
+          <p>Maximize the potential of your ERP ecosystem. We deliver expert SAP S/4HANA implementation and migration, seamlessly integrating core enterprise systems with cloud innovations to drive intelligent workflows.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-laptop-fill"></i></div>
+          <h3>Technology & IT Consulting</h3>
+          <p>Architect a resilient IT foundation. We specialize in end-to-end system integration, complex API architecture, and the adoption of DevOps & CI/CD practices to streamline development cycles and accelerate time-to-market.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-bank2"></i></div>
+          <h3>Financial Services Consulting</h3>
+          <p>Reimagine banking and insurance for the digital age. We drive specialized transformation focusing on advanced risk analytics, regulatory agility, and hyper-personalized customer experiences for the financial sector.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="bi bi-briefcase-fill"></i></div>
+          <h3>Business Process Outsourcing</h3>
+          <p>Elevate operational efficiency through strategic outsourcing. We manage critical functions—including HR, Finance, and Operations—with a consultative approach that blends human expertise with process automation.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section class="section contact" id="contact">
+    <div class="container">
+      <div class="contact-wrapper">
+        <div class="contact-info">
+          <h3 class="section-title">Get In Touch</h3>
+          <p class="section-subtitle">Ready to transform your business? Reach out to our expert consultants today.</p>
+          <div class="info-item">
+            <div class="icon-box"><i class="bi bi-geo-alt-fill"></i></div>
+            <div>
+              <h4>Office Address</h4>
+              <p>Jababeka Education Park<br>Jawa Barat, 17550, Indonesia</p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon-box"><i class="bi bi-envelope-fill"></i></div>
+            <div>
+              <h4>Email Us</h4>
+              <p><a href="mailto:group1@onexconsultant.ai">group1@onexconsultant.ai</a></p>
+            </div>
+          </div>
+          <div class="info-item">
+            <div class="icon-box"><i class="bi bi-telephone-fill"></i></div>
+            <div>
+              <h4>Call Us</h4>
+              <p><a href="tel:+6233334567">+62 3333-4567</a></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="form-card">
+          <form id="contactForm">
+            <div class="form-group">
+              <label for="fullName">Your Full Name</label>
+              <input type="text" id="fullName" placeholder="e.g. John Kaza" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Your Email Address</label>
+              <input type="email" id="email" placeholder="name@company.com" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone Number (Optional)</label>
+              <input type="tel" id="phone" placeholder="+62 3333-4567">
+            </div>
+            <div class="form-group">
+              <label for="service">What are you interested in?</label>
+              <select id="service" required>
+                <option value="" disabled selected>Select a service...</option>
+                <option value="data-ai">Data & AI / Analytics</option>
+                <option value="strategy">Strategy Consulting</option>
+                <option value="hybrid-cloud">Hybrid Cloud Consulting</option>
+                <option value="cybersecurity">Cybersecurity & Risk</option>
+                <option value="sap">SAP Consulting</option>
+                <option value="tech-it">Technology / IT Consulting</option>
+                <option value="finance">Financial Services Consulting</option>
+                <option value="bpo">Business Process Outsourcing</option>
+                <option value="other">Other Inquiry</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" rows="5" placeholder="Tell us about your project or challenge..." required></textarea>
+            </div>
+            <button type="submit" class="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <div class="footer-content">
+        <div class="footer-logo">
+          <img src="logoonex.png" alt="ONEX Consultant Logo">
+          <h3>ONEX Consultant</h3>
+          <p>Empowering businesses through intelligent automation and AI-driven innovation.</p>
+        </div>
+        <div class="footer-links">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About Us</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="#services">ERP (Enterprise Resource Planning)</a></li>
+            <li><a href="#services">Cloud Consulting & Migration</a></li>
+            <li><a href="#services">Digital Transformation</a></li>
+            <li><a href="#services">Cybersecurity Services</a></li>
+            <li><a href="#services">Data Analytics & Business Intelligence</a></li>
+            <li><a href="#services">Custom Software Development</a></li>
+            <li><a href="#services">IT Support & Maintenance</a></li>
+            <li><a href="#services">DevOps Consulting</a></li>
+          </ul>
+        </div>
+        <div class="footer-links">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="#">LinkedIn</a></li>
+            <li><a href="#">Twitter</a></li>
+            <li><a href="#">Instagram</a></li>
+            <li><a href="#">Blog</a></li>
+            <li><a href="#">Careers</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-copyright">
+        <p>&copy; 2025 ONEX Consultant. All rights reserved. | Designed for the future of business. | Group 1 Project</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- AI Chatbot Badge -->
+  <div class="ai-chatbot-badge" id="chatbotBadge">
+    <div class="badge-icon">
+      <img src="logochatbot.png" alt="ONEX AI">
+    </div>
+    <div class="badge-text">
+      <span>AI</span>
+      <span>CHATBOT</span>
+      <span>CONSULTANT</span>
+    </div>
+  </div>
+
+  <!-- Chat Window -->
+  <div class="chat-window" id="chatWindow">
+    <div class="chat-header">
+      <div class="chat-header-left">
+        <img src="logoonex.png" alt="ONEX Logo" class="chat-logo">
+        <h3>ONEX Consultant</h3>
+      </div>
+      <button class="minimize-btn" id="minimizeBtn">−</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="message bot-message">
+        <div class="text">
+          Hello! I'm your ONEX AI Consultant. How can I assist you today?
+        </div>
+      </div>
+    </div>
+    <div class="chat-input">
+      <input type="text" id="userInput" placeholder="Type your message and press [Enter]">
+      <button id="sendButton">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z" fill="white"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <script>
+    // Generate or retrieve unique session ID
+    function getSessionId() {
+      let sessionId = localStorage.getItem('onex_chat_session_id');
+      if (!sessionId) {
+        sessionId = 'sess_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+        localStorage.setItem('onex_chat_session_id', sessionId);
+      }
+      return sessionId;
+    }
+
+    // Toggle chat window
+    const badge = document.getElementById('chatbotBadge');
+    const chatWindow = document.getElementById('chatWindow');
+    const minimizeBtn = document.getElementById('minimizeBtn');
+
+    badge.addEventListener('click', () => {
+      chatWindow.classList.add('active');
+      badge.style.display = 'none';
+    });
+
+    minimizeBtn.addEventListener('click', () => {
+      chatWindow.classList.remove('active');
+      badge.style.display = 'flex';
+    });
+
+    // Form contact
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('Thank you! Our team will contact you within 24 hours.');
+      this.reset();
+    });
+
+    // Chat functionality
+    const sendButton = document.getElementById('sendButton');
+    const userInput = document.getElementById('userInput');
+    const chatMessages = document.getElementById('chatMessages');
+
+    function sendMessage() {
+      const message = userInput.value.trim();
+      if (!message) return;
+
+      // User message
+      const userDiv = document.createElement('div');
+      userDiv.className = 'message user-message';
+      userDiv.innerHTML = `<div class="text">${message}</div>`;
+      chatMessages.appendChild(userDiv);
+      userInput.value = '';
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Loading indicator
+      const loadingDiv = document.createElement('div');
+      loadingDiv.className = 'message bot-message';
+      loadingDiv.innerHTML = `<div class="text" style="color:#64748b;font-style:italic;">Typing...</div>`;
+      chatMessages.appendChild(loadingDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+
+      // Send to n8n
+      fetch('https://n8n-mwjjuprcz1ho.ciluba.sumopod.my.id/webhook/chat-input', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          message: message,
+          user_id: getSessionId(),
+          timestamp: new Date().toISOString()
+        })
+      })
+      .then(response => response.json())
+      .then(data => {
+        chatMessages.removeChild(loadingDiv);
+        const botDiv = document.createElement('div');
+        botDiv.className = 'message bot-message';
+        // ✅ RENDER HTML dari n8n
+        botDiv.innerHTML = `<div class="text">${data.response || "Maaf, terjadi kendala. Silakan coba lagi."}</div>`;
+        chatMessages.appendChild(botDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      })
+      .catch(err => {
+        chatMessages.removeChild(loadingDiv);
+        const errDiv = document.createElement('div');
+        errDiv.className = 'message bot-message';
+        errDiv.innerHTML = `<div class="text" style="color:#dc3545;">⚠️ Gagal terhubung. Cek koneksi internet.</div>`;
+        chatMessages.appendChild(errDiv);
+        chatMessages.scrollTop = chatMessages.scrollHeight;
+      });
+    }
+
+    sendButton.addEventListener('click', sendMessage);
+    userInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') sendMessage();
+    });
+  </script>
+</body>
+</html>
