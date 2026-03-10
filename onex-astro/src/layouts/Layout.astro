@@ -1,0 +1,68 @@
+---
+interface Props {
+	title: string;
+}
+
+const { title } = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="description" content="Dummy Website - Leading AI & Digital Transformation Experts." />
+		<meta name="keywords" content="AI consulting, digital transformation, cloud consulting, cybersecurity, data analytics, ERP system, IT consulting" />
+		<title>{title}</title>
+		
+		<!-- External Styles -->
+		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" />
+	</head>
+	<body>
+		<slot />
+
+		<!-- JavaScript Modules -->
+		<script src="/js/security-config.js" is:inline></script>
+		<script src="/js/utils.js" is:inline></script>
+		<script src="/js/auth.js" is:inline></script>
+		<script src="/js/chatbot.js" is:inline></script>
+		<script src="/js/forms.js" is:inline></script>
+
+		<script is:inline>
+			// Smooth scroll for navigation
+			document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+				anchor.addEventListener('click', function (e) {
+					e.preventDefault();
+					const target = document.querySelector(this.getAttribute('href'));
+					if (target) {
+						target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+						// Update active nav link
+						document.querySelectorAll('.nav-link').forEach((link) => link.classList.remove('active'));
+						if (this.classList.contains('nav-link')) {
+							this.classList.add('active');
+						}
+					}
+				});
+			});
+
+			// Header scroll effect
+			window.addEventListener('scroll', () => {
+				const header = document.querySelector('header');
+				if (header) {
+					if (window.scrollY > 50) {
+						header.classList.add('scrolled');
+					} else {
+						header.classList.remove('scrolled');
+					}
+				}
+			});
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	@import '../styles/design-system.css';
+	@import '../styles/components.css';
+	@import '../styles/main.css';
+</style>

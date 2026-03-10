@@ -1,0 +1,93 @@
+---
+// Chatbot.astro
+---
+<!-- AI Chatbot Badge -->
+<div class="ai-chatbot-badge" id="chatbotBadge">
+	<div class="badge-icon">
+		<img src="/assets/images/logochatbot.png" alt="ONEX AI Agent" />
+	</div>
+	<div class="badge-text">
+		<span>ONEX</span>
+		<span>AI AGENT</span>
+	</div>
+</div>
+
+<!-- Chat Window -->
+<div class="chat-window" id="chatWindow">
+	<div class="chat-header">
+		<div class="chat-header-left">
+			<img src="/assets/images/logoonex.png" alt="ONEX Logo" class="chat-logo" />
+			<h3>ONEX AI Agent</h3>
+		</div>
+		<button class="minimize-btn" id="minimizeBtn">−</button>
+	</div>
+	<div class="chat-messages" id="chatMessages">
+		<div class="message bot-message">
+			<div class="text">
+				Hello! I'm ONEX AI Agent. Please fill out this form to get started,
+				then I can assist you with your questions.
+			</div>
+		</div>
+		<!-- Login Form in Chatbot -->
+		<div id="chatLoginForm" class="chat-login-form">
+			<div class="form-group">
+				<label for="chatName" class="form-label required">Name</label>
+				<input
+					type="text"
+					id="chatName"
+					class="form-input"
+					placeholder="Your full name"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="chatEmail" class="form-label required">Email</label>
+				<input
+					type="email"
+					id="chatEmail"
+					class="form-input"
+					placeholder="name@company.com"
+					required
+				/>
+			</div>
+			<div class="form-group">
+				<label for="chatService" class="form-label required">Service</label>
+				<select id="chatService" class="form-select" required>
+					<option value="" disabled selected>Select a service</option>
+					<option value="cloud-consulting">Cloud Consulting</option>
+					<option value="cyber-security">Cyber Security</option>
+					<option value="erp-system">ERP System</option>
+					<option value="digital-transformation">Digital Transformation</option>
+					<option value="data-analytics">Data Analytics</option>
+					<option value="software-development">Software Development</option>
+					<option value="it-support">IT Support</option>
+					<option value="devops-consulting">DevOps Consulting</option>
+				</select>
+			</div>
+			<button
+				type="button"
+				id="chatLoginSubmit"
+				class="btn btn-primary btn-full"
+			>
+				Start Chat
+			</button>
+		</div>
+	</div>
+	<div class="chat-input">
+		<input type="text" id="userInput" placeholder="Type your message..." />
+		<button id="sendButton">
+			<svg
+				width="20"
+				height="20"
+				viewBox="0 0 24 24"
+				fill="none"
+				xmlns="http://www.w3.org/2000/svg"
+			>
+				<path
+					d="M2.01 21L23 12L2.01 3L2 10L17 12L2 14L2.01 21Z"
+					fill="white"
+				/>
+			</svg>
+		</button>
+	</div>
+</div>
